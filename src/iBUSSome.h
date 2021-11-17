@@ -3,14 +3,15 @@
  */
 
 #include <inttypes.h>
+#include <SomeSerial.h>
 
-class HardwareSerial;
+class SomeSerial;
 class Stream;
 
 class FlySkyIBus
 {
 public:
-  void begin(HardwareSerial& serial);
+  void begin(SomeSerial& serial);
   void begin(Stream& stream);
   void loop(void);
   uint16_t readChannel(uint8_t channelNr);
@@ -42,4 +43,4 @@ private:
   uint8_t lchksum;
 };
 
-extern FlySkyIBus IBus;
+extern iBUSSome IBus;
