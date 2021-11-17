@@ -3,17 +3,18 @@
  */
 
 #include <Arduino.h>
-#include "FlySkyIBus.h"
+#include <SomeSerial.h>
+#include "iBUSSome.h"
 
-FlySkyIBus IBus;
+iBUSSome IBus;
 
-void FlySkyIBus::begin(HardwareSerial& serial)
+void iBUSSome::begin(SomeSerial& serial)
 {
   serial.begin(115200);
   begin((Stream&)serial);
 }
 
-void FlySkyIBus::begin(Stream& stream)
+void iBUSSome::begin(Stream& stream)
 {
   this->stream = &stream;
   this->state = DISCARD;
@@ -24,7 +25,7 @@ void FlySkyIBus::begin(Stream& stream)
   this->lchksum = 0;
 }
 
-void FlySkyIBus::loop(void)
+void iBUSSome::loop(void)
 {
   while (stream->available() > 0)
   {
@@ -95,7 +96,7 @@ void FlySkyIBus::loop(void)
   }
 }
 
-uint16_t FlySkyIBus::readChannel(uint8_t channelNr)
+uint16_t iBUSSome::readChannel(uint8_t channelNr)
 {
   if (channelNr < PROTOCOL_CHANNELS)
   {
