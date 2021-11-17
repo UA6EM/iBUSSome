@@ -3,7 +3,8 @@
  *  Connect FS-iA6B receiver to Serial1.
  */
  
-#include "FlySkyIBus.h"
+#include <SomeSerial.h>
+#include "iBUSSome.h"
 
 void setup() 
 {
