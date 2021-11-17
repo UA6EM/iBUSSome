@@ -8,7 +8,7 @@
 class SomeSerial;
 class Stream;
 
-class FlySkyIBus
+class iBUSSome
 {
 public:
   void begin(SomeSerial& serial);
